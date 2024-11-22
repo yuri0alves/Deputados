@@ -1,0 +1,22 @@
+<h1>Buscar deputado</h1>
+<form [formGroup]="formBusca">
+       <label for="nome" class="form-label">
+              nome
+       </label>
+       <input class="form-control" type="text" 
+              name="nome" id="nome" formControlName="nome">
+       <input class="btn btn-info mt-3" type="button" value="Buscar" 
+              [disabled]="formBusca.invalid" (click)="buscar()">
+</form>
+
+<div *ngFor="let dep of deputado" class="card" style="width:15rem; height: auto;">
+     <img [src]="dep.urlFoto" class="card-img-top" alt="urlFotos">
+       <div class="card-body">
+              <h5 class="card-title">{{dep.nome}}</h5>
+              <ul class="card-text">
+                 <li>Partido: {{dep.siglaPartido}}</li>
+                 <li>email: {{dep.email}}</li>
+                 <li>Estado: {{dep.siglaUf}}</li>
+              </ul>
+       </div>
+</div>
